@@ -15,6 +15,8 @@
         app:layout_constraintVertical_bias="0.401" />
 
     ]]>
+    android:background="@drawable/login1"
+    tools:context=".MainActivity">
 
     <EditText
         android:id="@+id/sidEditText"
