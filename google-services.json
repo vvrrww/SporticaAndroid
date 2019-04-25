@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "430099635417",
+    "firebase_url": "https://sportica-b55fe.firebaseio.com",
+    "project_id": "sportica-b55fe",
+    "storage_bucket": "sportica-b55fe.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:430099635417:android:ddffbe8be1cd03d0",
+        "android_client_info": {
+          "package_name": "com.example.sportica"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "430099635417-khdkqiso7u85n2rac0ecl55pq26sg7jb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.sportica",
+            "certificate_hash": "599622acb2e4557b00117dc3ddc29afd9d28e3ca"
+          }
+        },
+        {
+          "client_id": "430099635417-3iouhmrvv847bcnr0plfrpmrqmhp3lr6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDFfhAa6-masL_4U3p8MdjDa43Fp7oIR5w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "430099635417-3iouhmrvv847bcnr0plfrpmrqmhp3lr6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
