@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
     TextView sportica;
     EditText sidEditText;
@@ -28,7 +28,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void loginClick(View v){
-        Intent intent = new Intent(this, NewsListActivity.class);
+        Intent intent = new Intent(this, HomeActivity.class);
         startActivity(intent);
     }
+
 }
