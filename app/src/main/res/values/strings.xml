@@ -6,4 +6,7 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Calendar" />
+    <string name="C">\@string/nav_calendar</string>
+    <string name="nav_calendar">Calendar</string>
 </resources>

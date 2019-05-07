@@ -47,7 +47,7 @@ public class NavActivity extends AppCompatActivity {
                     case R.id.nav_tournament:
                         setFragment(tournamentFragment);
                         return true;
-                    case R.id.nav_account:
+                    case R.id.nav_calendar:
                         setFragment(accountFragment);
                         return true;
 
