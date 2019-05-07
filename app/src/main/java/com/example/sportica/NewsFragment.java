@@ -1,8 +1,10 @@
 package com.example.sportica;
 
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -59,9 +61,11 @@ public class NewsFragment extends Fragment {
                 LinearLayout ll1 = getView().findViewById(R.id.ll1);
                 ll1.removeAllViews();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    String title = snapshot.child("title").getValue().toString();
-                    String url = snapshot.child("image").getValue().toString();
-                    String short_detail = snapshot.child("short_detail").getValue().toString();
+                    final String title = snapshot.child("title").getValue().toString();
+                    final String date = snapshot.child("date").getValue().toString();
+                    final String url = snapshot.child("image").getValue().toString();
+                    final String short_detail = snapshot.child("short_detail").getValue().toString();
+                    final String long_detail = snapshot.child("long_detail").getValue().toString();
                     String bs = "more detail...";
 
                     ImageView imv = new ImageView(getActivity());
@@ -85,14 +89,30 @@ public class NewsFragment extends Fragment {
                     t2.setText(short_detail);
                     ll1.addView(t2);
 
+                    TextView t3 = new TextView(getActivity());
+                    LinearLayout.LayoutParams lp5 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+                    t3.setLayoutParams(lp5);
+                    t3.setText(date);
+                    ll1.addView(t3);
+
                     Button btn = new Button(getActivity());
                     btn.setText(bs);
                     LinearLayout.LayoutParams lp4 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
                     lp4.setMarginStart(900);
                     btn.setLayoutParams(lp4);
-//                    btn.setOnClickListener(){
-//
-//                    };
+
+                    btn.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(getActivity(),NewsDetailActivity.class);
+                            intent.putExtra("title", title);
+                            intent.putExtra("url", url);
+                            intent.putExtra("long_detail", long_detail);
+                            intent.putExtra("date", date);
+                            startActivity(intent);
+                        }
+                    });
+
                     ll1.addView(btn);
                 }
             }
