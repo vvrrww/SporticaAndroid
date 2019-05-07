@@ -9,8 +9,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class LoginActivity extends AppCompatActivity {
+    private static final String TAG = "SSODemo";
 
-    TextView sportica;
+    TextView sportica,myTextView;
     EditText sidEditText;
     EditText passwordEditText;
     Button loginButton;
@@ -24,12 +25,18 @@ public class LoginActivity extends AppCompatActivity {
         sidEditText = this.findViewById(R.id.sidEditText);
         passwordEditText = this.findViewById(R.id.passwordEditText);
         loginButton = this.findViewById(R.id.loginButton);
-
+        myTextView = this.findViewById(R.id.myTextView);
     }
 
     public void loginClick(View v){
         Intent intent = new Intent(this, NavActivity.class);
         startActivity(intent);
+    }
+
+    public void onSSOLogin(View v){
+        Intent intent=new Intent(this,ChulaSSOActivity.class);
+        startActivityForResult(intent,ChulaSSOActivity.LOGIN);
+
     }
 
 }

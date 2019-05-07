@@ -11,8 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".NewsDetailActivity"
-            android:parentActivityName=".NavActivity"></activity>
+        <activity android:name=".ChulaSSOActivity"></activity>
+        <activity
+            android:name=".NewsDetailActivity"
+            android:parentActivityName=".NavActivity" />
         <activity android:name=".NavActivity" />
         <activity android:name=".LoginActivity">
             <intent-filter>
