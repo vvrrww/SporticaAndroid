@@ -18,7 +18,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
 
         sportica = this.findViewById(R.id.sportica);
         sidEditText = this.findViewById(R.id.sidEditText);
@@ -28,7 +28,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void loginClick(View v){
-        Intent intent = new Intent(this, HomeActivity.class);
+        Intent intent = new Intent(this, NavActivity.class);
         startActivity(intent);
     }
 

@@ -8,16 +8,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
-import android.widget.TextView;
 import android.support.v4.app.Fragment;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
-public class HomeActivity extends AppCompatActivity {
+public class NavActivity extends AppCompatActivity {
 
 
     BottomNavigationView nav1;
@@ -25,12 +18,12 @@ public class HomeActivity extends AppCompatActivity {
 
     NewsFragment newsFragment;
     TournamentFragment tournamentFragment;
-    AccountFragment accountFragment;
+    CalenderFragment accountFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_news_list);
+        setContentView(R.layout.activity_nav);
 
         Intent intent = getIntent();
 
@@ -39,7 +32,7 @@ public class HomeActivity extends AppCompatActivity {
 
         newsFragment = new NewsFragment();
         tournamentFragment = new TournamentFragment();
-        accountFragment = new AccountFragment();
+        accountFragment = new CalenderFragment();
 
         setFragment(newsFragment);
 

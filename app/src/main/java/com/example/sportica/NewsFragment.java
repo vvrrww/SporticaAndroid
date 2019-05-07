@@ -37,7 +37,7 @@ public class NewsFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         t1 = getView().findViewById(R.id.t1);
         t1.setText("News");
-        ref = FirebaseDatabase.getInstance().getReference().child("News");
+        ref = FirebaseDatabase.getInstance().getReference().child("news");
         readFromDatabase();
     }
 
@@ -49,7 +49,7 @@ public class NewsFragment extends Fragment {
                 LinearLayout ll1 = getView().findViewById(R.id.ll1);
                 ll1.removeAllViews();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    String title = snapshot.child("Title").getValue().toString();
+                    String title = snapshot.child("title").getValue().toString();
 
                     Button btn = new Button(getActivity());
                     btn.setText(title);
