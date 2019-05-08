@@ -18,26 +18,11 @@ import org.json.JSONObject;
 public class LoginActivity extends AppCompatActivity {
     private static final String TAG = "SSODemo";
 
-    TextView sportica,myTextView;
-    EditText sidEditText;
-    EditText passwordEditText;
-    Button loginButton;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        sportica = this.findViewById(R.id.sportica);
-        sidEditText = this.findViewById(R.id.sidEditText);
-        passwordEditText = this.findViewById(R.id.passwordEditText);
-        loginButton = this.findViewById(R.id.loginButton);
-        myTextView = this.findViewById(R.id.myTextView);
-    }
-
-    public void loginClick(View v){
-        Intent intent = new Intent(this, NavActivity.class);
-        startActivity(intent);
     }
 
     public void onSSOLogin(View v){
@@ -73,7 +58,13 @@ public class LoginActivity extends AppCompatActivity {
             super.onPostExecute(json);
             try{
                 JSONObject user = new JSONObject(json);
+                /*
+
                 myTextView.setText("Hello, "+user.getString("firstname")+" "+user.getString("lastname"));
+                */
+                Intent startIntent = new Intent(getApplicationContext(),WelcomeActivity.class);
+                startIntent.putExtra("com.example.sportica.json",json);
+                startActivity(startIntent);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
