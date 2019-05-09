@@ -26,6 +26,7 @@ public class ChulaSSOActivity extends AppCompatActivity {
         setContentView(R.layout.activity_chula_sso);
 
         webView = this.findViewById(R.id.myWebView);
+        webView.getSettings().setJavaScriptEnabled(true);
         webView.setWebViewClient(new WebViewClient() {
 
             @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
