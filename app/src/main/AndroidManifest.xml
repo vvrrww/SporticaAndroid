@@ -11,7 +11,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ChulaSSOActivity"></activity>
+        <activity android:name=".TournamentSportActivity"
+            android:parentActivityName=".TournamentDetailActivity" />
+        <activity android:name=".TournamentMedalsActivity"
+            android:parentActivityName=".TournamentDetailActivity" />
+        <activity android:name=".TournamentFormActivity"
+            android:parentActivityName=".TournamentDetailActivity" />
+        <activity android:name=".TournamentContactActivity"
+            android:parentActivityName=".TournamentDetailActivity" />
+
+        <activity
+            android:name=".TournamentDetailActivity"
+            android:parentActivityName=".NavActivity" />
+        <activity android:name=".ChulaSSOActivity" />
         <activity
             android:name=".NewsDetailActivity"
             android:parentActivityName=".NavActivity" />
