@@ -62,7 +62,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 myTextView.setText("Hello, "+user.getString("firstname")+" "+user.getString("lastname"));
                 */
-                Intent startIntent = new Intent(getApplicationContext(),WelcomeActivity.class);
+                Intent startIntent = new Intent(getApplicationContext(),NavActivity.class);
                 startIntent.putExtra("com.example.sportica.json",json);
                 startActivity(startIntent);
             } catch (JSONException e) {

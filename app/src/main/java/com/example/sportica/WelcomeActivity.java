@@ -1,6 +1,7 @@
 package com.example.sportica;
 
 import android.content.Intent;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
@@ -26,7 +27,15 @@ public class WelcomeActivity extends AppCompatActivity {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-
         }
+
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            public void run() {
+                Intent startIntent = new Intent(getApplicationContext(),NewsFragment.class);
+                startIntent.putExtra("com.example.sportica.json",json);
+                startActivity(startIntent);
+            }
+        }, 3000);
     }
 }
