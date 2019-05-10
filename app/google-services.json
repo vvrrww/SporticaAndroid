@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "430099635417-6ci7p82dfnnvk1s5tj2h25lepot3dnog.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.sportica",
+            "certificate_hash": "00fe70d997f135422b52e6dfe7af4fb5a829513b"
+          }
+        },
+        {
           "client_id": "430099635417-khdkqiso7u85n2rac0ecl55pq26sg7jb.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
@@ -38,6 +46,13 @@
             {
               "client_id": "430099635417-3iouhmrvv847bcnr0plfrpmrqmhp3lr6.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "430099635417-0icahadrcnek1fgmqt03d35tvsci7qv9.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.chal.Sportica"
+              }
             }
           ]
         }

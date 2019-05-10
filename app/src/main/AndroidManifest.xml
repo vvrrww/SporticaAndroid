@@ -13,6 +13,19 @@
         android:theme="@style/AppTheme">
         <activity android:name=".WelcomeActivity"></activity>
         <activity android:name=".ChulaSSOActivity" />
+        <activity android:name=".TournamentSportActivity"
+            android:parentActivityName=".TournamentDetailActivity" />
+        <activity android:name=".TournamentMedalsActivity"
+            android:parentActivityName=".TournamentDetailActivity" />
+        <activity android:name=".TournamentPlayerActivity"
+            android:parentActivityName=".TournamentDetailActivity" />
+        <activity android:name=".TournamentContactActivity"
+            android:parentActivityName=".TournamentDetailActivity" />
+
+        <activity
+            android:name=".TournamentDetailActivity"
+            android:parentActivityName=".NavActivity" />
+        <activity android:name=".ChulaSSOActivity" />
         <activity
             android:name=".NewsDetailActivity"
             android:parentActivityName=".NavActivity" />

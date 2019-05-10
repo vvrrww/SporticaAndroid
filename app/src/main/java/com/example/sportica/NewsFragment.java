@@ -1,6 +1,7 @@
 package com.example.sportica;
 
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -60,20 +61,21 @@ public class NewsFragment extends Fragment {
 
                 LinearLayout ll1 = getView().findViewById(R.id.ll1);
                 ll1.removeAllViews();
+                String bs = "more detail...";
+
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     final String title = snapshot.child("title").getValue().toString();
                     final String date = snapshot.child("date").getValue().toString();
                     final String url = snapshot.child("image").getValue().toString();
                     final String short_detail = snapshot.child("short_detail").getValue().toString();
                     final String long_detail = snapshot.child("long_detail").getValue().toString();
-                    String bs = "more detail...";
 
                     ImageView imv = new ImageView(getActivity());
                     LinearLayout.LayoutParams lp1 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
                     lp1.topMargin = 50;
                     lp1.height = 500;
                     imv.setLayoutParams(lp1);
-                    new DownloadImage(imv).execute(url);
+                    new NavActivity.DownloadImage(imv).execute(url);
                     ll1.addView(imv);
 
                     TextView t1 = new TextView(getActivity());
@@ -98,7 +100,7 @@ public class NewsFragment extends Fragment {
                     Button btn = new Button(getActivity());
                     btn.setText(bs);
                     LinearLayout.LayoutParams lp4 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-                    lp4.setMarginStart(900);
+                    lp4.setMarginStart(800);
                     btn.setLayoutParams(lp4);
 
                     btn.setOnClickListener(new View.OnClickListener() {
@@ -123,28 +125,4 @@ public class NewsFragment extends Fragment {
         });
     }
 
-    public class DownloadImage extends AsyncTask<String, Void, Bitmap> {
-        ImageView bmImage;
-
-        public DownloadImage(ImageView bmImage) {
-            this.bmImage = (ImageView ) bmImage;
-        }
-
-        protected Bitmap doInBackground(String... urls) {
-            String urldisplay = urls[0];
-            Bitmap mIcon11 = null;
-            try {
-                InputStream in = new java.net.URL(urldisplay).openStream();
-                mIcon11 = BitmapFactory.decodeStream(in);
-            } catch (Exception e) {
-                Log.d("Error", e.getStackTrace().toString());
-
-            }
-            return mIcon11;
-        }
-
-        protected void onPostExecute(Bitmap result) {
-            bmImage.setImageBitmap(result);
-        }
-    }
 }

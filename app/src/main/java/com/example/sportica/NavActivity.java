@@ -1,15 +1,24 @@
 package com.example.sportica;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 import android.support.v4.app.Fragment;
+import android.widget.ImageView;
+
+import java.io.InputStream;
+
+import static java.sql.DriverManager.println;
 
 public class NavActivity extends AppCompatActivity {
 
@@ -64,5 +73,24 @@ public class NavActivity extends AppCompatActivity {
         fragmentTransaction.commit();
     }
 
-
+    public static class DownloadImage extends AsyncTask<String, Void, Bitmap> {
+        ImageView bmImage;
+        public DownloadImage(ImageView bmImage) {
+            this.bmImage = (ImageView ) bmImage;
+        }
+        protected Bitmap doInBackground(String... urls) {
+            String urldisplay = urls[0];
+            Bitmap mIcon11 = null;
+            try {
+                InputStream in = new java.net.URL(urldisplay).openStream();
+                mIcon11 = BitmapFactory.decodeStream(in);
+            } catch (Exception e) {
+                Log.d("Error", e.getStackTrace().toString());
+            }
+            return mIcon11;
+        }
+        protected void onPostExecute(Bitmap result) {
+            bmImage.setImageBitmap(result);
+        }
+    }
 }

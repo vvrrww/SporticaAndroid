@@ -18,6 +18,7 @@ public class NewsDetailActivity extends AppCompatActivity {
     ImageView dim1;
     TextView dt1;
     TextView dt2;
+    TextView dt3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,39 +28,16 @@ public class NewsDetailActivity extends AppCompatActivity {
         dim1 = this.findViewById(R.id.dim1);
         dt1 = this.findViewById(R.id.dt1);
         dt2 = this.findViewById(R.id.dt2);
+        dt3 = this.findViewById(R.id.dt3);
         Intent intent = getIntent();
         String title = intent.getStringExtra("title");
         String date = intent.getStringExtra("date");
         String long_detail = intent.getStringExtra("long_detail");
         String url = intent.getStringExtra("url");
-        new DownloadImage(dim1).execute(url);
+        new NavActivity.DownloadImage(dim1).execute(url);
         dt1.setTextSize(30);
         dt1.setText(title);
         dt2.setText(long_detail);
-    }
-
-    public class DownloadImage extends AsyncTask<String, Void, Bitmap> {
-        ImageView bmImage;
-
-        public DownloadImage(ImageView bmImage) {
-            this.bmImage = (ImageView ) bmImage;
-        }
-
-        protected Bitmap doInBackground(String... urls) {
-            String urldisplay = urls[0];
-            Bitmap mIcon11 = null;
-            try {
-                InputStream in = new java.net.URL(urldisplay).openStream();
-                mIcon11 = BitmapFactory.decodeStream(in);
-            } catch (Exception e) {
-                Log.d("Error", e.getStackTrace().toString());
-
-            }
-            return mIcon11;
-        }
-
-        protected void onPostExecute(Bitmap result) {
-            bmImage.setImageBitmap(result);
-        }
+        dt3.setText(date);
     }
 }
