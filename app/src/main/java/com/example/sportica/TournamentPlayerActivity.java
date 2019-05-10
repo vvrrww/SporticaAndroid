@@ -1,12 +1,16 @@
 package com.example.sportica;
 
 import android.content.Intent;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -19,12 +23,14 @@ public class TournamentPlayerActivity extends AppCompatActivity {
     String key;
     LinearLayout pll1;
     DatabaseReference ref;
+    Button fb1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tournament_player);
         pll1 = this.findViewById(R.id.pll1);
+        fb1 = this.findViewById(R.id.fb1);
         Intent intent = getIntent();
         key = intent.getStringExtra("key");
         ref = FirebaseDatabase.getInstance().getReference().child("tournament").child(key).child("sport");
@@ -71,7 +77,6 @@ public class TournamentPlayerActivity extends AppCompatActivity {
                             t4.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
                             t4.setText("Type : " + type);
                             pll1.addView(t4);
-
                         }
                     }
                 }
@@ -83,6 +88,29 @@ public class TournamentPlayerActivity extends AppCompatActivity {
         });
     }
 
+    public void playerFormClick(View v){
+        Intent intent = new Intent(this, TournamentPlayerFormActivity.class);
+        startActivityForResult(intent, 1);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1){
+            if (resultCode == RESULT_OK){
+                String sport = data.getStringExtra("sport");
+                String faculty = data.getStringExtra("faculty");
+                String name = data.getStringExtra("name");
+                String type = data.getStringExtra("type");
+
+
+                Toast.makeText(this, "Form apply successfully", Toast.LENGTH_SHORT);
+            }
+            if (resultCode == RESULT_CANCELED){
+                Toast.makeText(this, "Form has been cancelled", Toast.LENGTH_SHORT);
+            }
+        }
+    }
 
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId()== android.R.id.home) {

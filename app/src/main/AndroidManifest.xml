@@ -11,15 +11,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TournamentSportActivity"
+        <activity android:name=".TournamentPlayerFormActivity"></activity>
+        <activity
+            android:name=".TournamentSportActivity"
             android:parentActivityName=".TournamentDetailActivity" />
-        <activity android:name=".TournamentMedalsActivity"
+        <activity
+            android:name=".TournamentMedalsActivity"
             android:parentActivityName=".TournamentDetailActivity" />
-        <activity android:name=".TournamentPlayerActivity"
+        <activity
+            android:name=".TournamentPlayerActivity"
             android:parentActivityName=".TournamentDetailActivity" />
-        <activity android:name=".TournamentContactActivity"
+        <activity
+            android:name=".TournamentContactActivity"
             android:parentActivityName=".TournamentDetailActivity" />
-
         <activity
             android:name=".TournamentDetailActivity"
             android:parentActivityName=".NavActivity" />
