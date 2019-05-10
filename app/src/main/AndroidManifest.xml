@@ -14,6 +14,9 @@
         <activity android:name=".TournamentPlayerFormActivity"></activity>
         <activity
             android:name=".TournamentSportActivity"
+        <activity android:name=".WelcomeActivity"></activity>
+        <activity android:name=".ChulaSSOActivity" />
+        <activity android:name=".TournamentSportActivity"
             android:parentActivityName=".TournamentDetailActivity" />
         <activity
             android:name=".TournamentMedalsActivity"

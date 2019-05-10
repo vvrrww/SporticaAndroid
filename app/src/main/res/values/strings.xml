@@ -9,4 +9,6 @@
     <string name="Calendar" />
     <string name="C">\@string/nav_calendar</string>
     <string name="nav_calendar">Calendar</string>
+    <string name="sportica">Sportica</string>
+    <string name="login_with_chulasso">login with ChulaSSO</string>
 </resources>
