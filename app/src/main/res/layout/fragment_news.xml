@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/lightBlue"
     tools:context=".NewsFragment">
 
     <LinearLayout
@@ -22,8 +23,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
         android:layout_marginTop="50dp"
+        android:fontFamily="@font/open_sans_bold"
         android:text="@string/nav_news"
         android:textAlignment="textStart"
+        android:textColor="@color/colorWhite"
         android:textSize="36sp" />
 
 </FrameLayout>

@@ -25,10 +25,12 @@ import java.util.Map;
 public class TournamentPlayerActivity extends AppCompatActivity {
 
     String tname;
+    String sname;
+    String fname;
+    String pname;
     LinearLayout pll1;
     DatabaseReference ref;
     Button fb1;
-    ArrayList<String> cars;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,40 +49,42 @@ public class TournamentPlayerActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
 
                 pll1.removeAllViews();
-                cars = new ArrayList<String>();
 
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    final String sname = snapshot.getKey().toString();
+                    sname = snapshot.getKey().toString();
 
                     TextView t1 = new TextView(getApplicationContext());
                     t1.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
                     t1.setTextSize(30);
                     t1.setText(sname);
+                    t1.setPadding(25,10,0,0);
                     pll1.addView(t1);
-                    cars.add(sname);
 
                     for (DataSnapshot snapshot1 : snapshot.getChildren()) {
-                        final String fname = snapshot1.getKey().toString();
+                        fname = snapshot1.getKey().toString();
 
                         TextView t2 = new TextView(getApplicationContext());
                         t2.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
                         t2.setTextSize(20);
                         t2.setText(fname);
+                        t2.setPadding(25,0,0,0);
                         pll1.addView(t2);
 
                         for (DataSnapshot snapshot2 : snapshot1.getChildren()) {
-                            final String pname = snapshot2.getKey().toString();
+                            pname = snapshot2.getKey().toString();
                             final String type = snapshot2.getValue().toString();
 
                             TextView t3 = new TextView(getApplicationContext());
                             t3.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
                             t3.setTextSize(20);
-                            t3.setText(pname);
+                            t3.setText("• "+pname);
+                            t3.setPadding(60,0,0,0);
                             pll1.addView(t3);
 
                             TextView t4 = new TextView(getApplicationContext());
                             t4.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
                             t4.setText("Type : " + type);
+                            t4.setPadding(60,0,0,20);
                             pll1.addView(t4);
                         }
                     }
@@ -95,7 +99,9 @@ public class TournamentPlayerActivity extends AppCompatActivity {
 
     public void playerFormClick(View v){
         Intent intent = new Intent(this, TournamentPlayerFormActivity.class);
-//        intent.putStringArrayListExtra("cars", cars);
+        intent.putExtra("tname", tname);
+        intent.putExtra("sname", sname);
+        intent.putExtra("fname", fname);
         startActivityForResult(intent, 1);
     }
 

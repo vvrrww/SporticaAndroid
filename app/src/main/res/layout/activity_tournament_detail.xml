@@ -8,44 +8,48 @@
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content"
+            android:background="@color/duckEggBlue">
 
-        <TextView
-            android:id="@+id/tt2"
-            android:layout_width="332dp"
-            android:layout_height="121dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="8dp"
-            android:text="TextView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tt1" />
+                <TextView
+                    android:id="@+id/tt2"
+                    android:layout_width="332dp"
+                    android:layout_height="121dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="TextView"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/slate"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tt1" />
 
-        <TextView
-            android:id="@+id/tt1"
-            android:layout_width="314dp"
-            android:layout_height="66dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="8dp"
-            android:text="TextView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tim1" />
+                <TextView
+                    android:id="@+id/tt1"
+                    android:layout_width="314dp"
+                    android:layout_height="66dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="TextView"
+                    android:textColor="@color/colorBlack"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tim1" />
 
-        <ImageView
-            android:id="@+id/tim1"
-            android:layout_width="266dp"
-            android:layout_height="171dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="44dp"
-            android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.496"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@tools:sample/avatars" />
+                <ImageView
+                    android:id="@+id/tim1"
+                    android:layout_width="266dp"
+                    android:layout_height="171dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="44dp"
+                    android:layout_marginEnd="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.496"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:srcCompat="@tools:sample/avatars" />
 
                 <Button
                     android:id="@+id/tb1"
@@ -54,8 +58,14 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="24dp"
                     android:layout_marginEnd="8dp"
+                    android:background="@color/silver"
+                    android:cursorVisible="true"
+                    android:drawableEnd="@android:drawable/ic_dialog_info"
+                    android:fontFamily="@font/open_sans_bold"
                     android:onClick="sportClick"
+                    android:padding="8dp"
                     android:text="Sport"
+                    android:textAlignment="textStart"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.493"
                     app:layout_constraintStart_toStartOf="parent"
@@ -68,8 +78,14 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="8dp"
+                    android:background="@color/silver"
+                    android:cursorVisible="true"
+                    android:drawableEnd="@android:drawable/ic_dialog_info"
+                    android:fontFamily="@font/open_sans_bold"
                     android:onClick="medalsClick"
+                    android:padding="8dp"
                     android:text="Medals"
+                    android:textAlignment="textStart"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tb1" />
@@ -81,8 +97,13 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="8dp"
+                    android:background="@color/silver"
+                    android:drawableEnd="@android:drawable/ic_dialog_info"
+                    android:fontFamily="@font/open_sans_bold"
                     android:onClick="playerClick"
+                    android:padding="8dp"
                     android:text="Player"
+                    android:textAlignment="textStart"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tb2" />
@@ -94,8 +115,13 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="8dp"
+                    android:background="@color/silver"
+                    android:drawableEnd="@android:drawable/ic_dialog_info"
+                    android:fontFamily="@font/open_sans_bold"
                     android:onClick="contactClick"
+                    android:padding="8dp"
                     android:text="Contact"
+                    android:textAlignment="textStart"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tb3" />

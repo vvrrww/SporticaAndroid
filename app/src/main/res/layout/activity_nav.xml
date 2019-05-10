@@ -39,4 +39,15 @@
 
     </android.support.design.widget.BottomNavigationView>
 
+    <TextView
+        android:id="@+id/myTV"
+        android:layout_width="409dp"
+        android:layout_height="30dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="0dp"
+        android:gravity="center"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textStyle="italic" />
+
 </RelativeLayout>

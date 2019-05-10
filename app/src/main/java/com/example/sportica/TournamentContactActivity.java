@@ -42,7 +42,7 @@ public class TournamentContactActivity extends AppCompatActivity {
                 int n = 0;
 
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    final String name = snapshot.child("name").getValue().toString();
+                    final String name = snapshot.getKey().toString();
                     final String phone = snapshot.child("phone").getValue().toString();
                     final String position = snapshot.child("position").getValue().toString();
 

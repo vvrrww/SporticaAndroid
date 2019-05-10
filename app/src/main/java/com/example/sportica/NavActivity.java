@@ -15,14 +15,18 @@ import android.view.MenuItem;
 import android.widget.FrameLayout;
 import android.support.v4.app.Fragment;
 import android.widget.ImageView;
+import android.widget.TextView;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.InputStream;
 
 import static java.sql.DriverManager.println;
 
 public class NavActivity extends AppCompatActivity {
-
-
+    TextView myTV;
+    String json;
     BottomNavigationView nav1;
     FrameLayout main_frame;
 
@@ -35,6 +39,17 @@ public class NavActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nav);
 
+        // Welcome text
+        myTV = this.findViewById(R.id.myTV);
+        if(getIntent().hasExtra("com.example.sportica.json")){
+            try{
+                json = getIntent().getExtras().getString("com.example.sportica.json");
+                JSONObject user = new JSONObject(json);
+                myTV.setText("Welcome back! "+user.getString("firstname")+" "+user.getString("lastname"));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
         Intent intent = getIntent();
 
         nav1 = this.findViewById(R.id.nav1);

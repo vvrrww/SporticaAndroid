@@ -44,6 +44,8 @@ public class TournamentSportActivity extends AppCompatActivity {
                     t1.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
                     t1.setTextSize(30);
                     t1.setText(sname);
+
+                    t1.setPadding(24,20,0,0);
                     sll1.addView(t1);
                 }
             }

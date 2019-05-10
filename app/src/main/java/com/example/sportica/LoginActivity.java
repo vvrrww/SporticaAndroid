@@ -17,12 +17,12 @@ import org.json.JSONObject;
 
 public class LoginActivity extends AppCompatActivity {
     private static final String TAG = "SSODemo";
-
+    TextView myTextView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
+        myTextView = this.findViewById(R.id.myTextView);
     }
 
     public void onSSOLogin(View v){
@@ -56,18 +56,9 @@ public class LoginActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String json) {
             super.onPostExecute(json);
-            try{
-                JSONObject user = new JSONObject(json);
-                /*
-
-                myTextView.setText("Hello, "+user.getString("firstname")+" "+user.getString("lastname"));
-                */
-                Intent startIntent = new Intent(getApplicationContext(),NavActivity.class);
-                startIntent.putExtra("com.example.sportica.json",json);
-                startActivity(startIntent);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+            Intent startIntent = new Intent(getApplicationContext(),NavActivity.class);
+            startIntent.putExtra("com.example.sportica.json",json);
+            startActivity(startIntent);
         }
     }
 
