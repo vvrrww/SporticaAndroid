@@ -18,6 +18,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -27,6 +28,7 @@ public class TournamentPlayerActivity extends AppCompatActivity {
     LinearLayout pll1;
     DatabaseReference ref;
     Button fb1;
+    ArrayList<String> cars;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +47,7 @@ public class TournamentPlayerActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
 
                 pll1.removeAllViews();
+                cars = new ArrayList<String>();
 
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     final String sname = snapshot.getKey().toString();
@@ -54,6 +57,7 @@ public class TournamentPlayerActivity extends AppCompatActivity {
                     t1.setTextSize(30);
                     t1.setText(sname);
                     pll1.addView(t1);
+                    cars.add(sname);
 
                     for (DataSnapshot snapshot1 : snapshot.getChildren()) {
                         final String fname = snapshot1.getKey().toString();
@@ -91,6 +95,7 @@ public class TournamentPlayerActivity extends AppCompatActivity {
 
     public void playerFormClick(View v){
         Intent intent = new Intent(this, TournamentPlayerFormActivity.class);
+//        intent.putStringArrayListExtra("cars", cars);
         startActivityForResult(intent, 1);
     }
 

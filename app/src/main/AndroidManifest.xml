@@ -11,9 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TournamentPlayerFormActivity"></activity>
-        <activity android:name=".WelcomeActivity"></activity>
+        <activity android:name=".WelcomeActivity" />
         <activity android:name=".ChulaSSOActivity" />
+        <activity android:name=".TournamentPlayerFormActivity" />
         <activity android:name=".TournamentSportActivity"
             android:parentActivityName=".TournamentDetailActivity" />
         <activity
@@ -32,14 +32,15 @@
             android:name=".NewsDetailActivity"
             android:parentActivityName=".NavActivity" />
         <activity android:name=".NavActivity" >
+
+        </activity>
+
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name=".LoginActivity">
-
         </activity>
 
         <meta-data
