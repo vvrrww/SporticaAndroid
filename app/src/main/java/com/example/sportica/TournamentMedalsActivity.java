@@ -54,9 +54,6 @@ public class TournamentMedalsActivity extends AppCompatActivity {
                     t0.setText(faculty);
                     mll1.addView(t0);
 
-                    Log.d("mydebug",faculty);
-
-
                     TextView t1 = new TextView(getApplicationContext());
                     t1.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
                     t1.setTextSize(20);

@@ -15,7 +15,7 @@
             android:parentActivityName=".TournamentDetailActivity" />
         <activity android:name=".TournamentMedalsActivity"
             android:parentActivityName=".TournamentDetailActivity" />
-        <activity android:name=".TournamentFormActivity"
+        <activity android:name=".TournamentPlayerActivity"
             android:parentActivityName=".TournamentDetailActivity" />
         <activity android:name=".TournamentContactActivity"
             android:parentActivityName=".TournamentDetailActivity" />

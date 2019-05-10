@@ -1,19 +1,13 @@
 package com.example.sportica;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.os.AsyncTask;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -21,8 +15,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
-import java.io.InputStream;
 
 public class TournamentDetailActivity extends AppCompatActivity {
 
@@ -97,8 +89,8 @@ public class TournamentDetailActivity extends AppCompatActivity {
         intent.putExtra("key", key);
         startActivity(intent);
     }
-    public void formClick(View v){
-        Intent intent = new Intent(this, TournamentFormActivity.class);
+    public void playerClick(View v){
+        Intent intent = new Intent(this, TournamentPlayerActivity.class);
         intent.putExtra("key", key);
         startActivity(intent);
     }
