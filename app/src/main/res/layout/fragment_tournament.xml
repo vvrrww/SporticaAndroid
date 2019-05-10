@@ -21,7 +21,7 @@
     <LinearLayout
         android:id="@+id/ll1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="110dp"
         android:background="@color/darkPeach"
         android:orientation="vertical"></LinearLayout>
