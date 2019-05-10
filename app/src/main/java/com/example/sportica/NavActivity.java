@@ -18,6 +18,8 @@ import android.widget.ImageView;
 
 import java.io.InputStream;
 
+import static java.sql.DriverManager.println;
+
 public class NavActivity extends AppCompatActivity {
 
 

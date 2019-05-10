@@ -70,7 +70,6 @@ public class NewsFragment extends Fragment {
                     final String short_detail = snapshot.child("short_detail").getValue().toString();
                     final String long_detail = snapshot.child("long_detail").getValue().toString();
 
-
                     ImageView imv = new ImageView(getActivity());
                     LinearLayout.LayoutParams lp1 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
                     lp1.topMargin = 50;
