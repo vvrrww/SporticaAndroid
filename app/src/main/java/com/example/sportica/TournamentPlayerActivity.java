@@ -56,6 +56,7 @@ public class TournamentPlayerActivity extends AppCompatActivity {
                     t1.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
                     t1.setTextSize(30);
                     t1.setText(sname);
+                    t1.setPadding(25,10,0,0);
                     pll1.addView(t1);
                     cars.add(sname);
 
@@ -66,6 +67,7 @@ public class TournamentPlayerActivity extends AppCompatActivity {
                         t2.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
                         t2.setTextSize(20);
                         t2.setText(fname);
+                        t2.setPadding(25,0,0,0);
                         pll1.addView(t2);
 
                         for (DataSnapshot snapshot2 : snapshot1.getChildren()) {
@@ -75,12 +77,14 @@ public class TournamentPlayerActivity extends AppCompatActivity {
                             TextView t3 = new TextView(getApplicationContext());
                             t3.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
                             t3.setTextSize(20);
-                            t3.setText(pname);
+                            t3.setText("• "+pname);
+                            t3.setPadding(60,0,0,0);
                             pll1.addView(t3);
 
                             TextView t4 = new TextView(getApplicationContext());
                             t4.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
                             t4.setText("Type : " + type);
+                            t4.setPadding(60,0,0,20);
                             pll1.addView(t4);
                         }
                     }

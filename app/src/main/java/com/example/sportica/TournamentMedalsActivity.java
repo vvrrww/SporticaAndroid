@@ -52,24 +52,28 @@ public class TournamentMedalsActivity extends AppCompatActivity {
                     t0.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
                     t0.setTextSize(30);
                     t0.setText(faculty);
+                    t0.setPadding(25,10,0,10);
                     mll1.addView(t0);
 
                     TextView t1 = new TextView(getApplicationContext());
                     t1.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
                     t1.setTextSize(20);
-                    t1.setText("Gold Medal : " + gold + "medal(s)");
+                    t1.setText("Gold Medal : " + gold + " medal(s)");
+                    t1.setPadding(25,0,0,0);
                     mll1.addView(t1);
 
                     TextView t2 = new TextView(getApplicationContext());
                     t2.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
                     t2.setTextSize(20);
-                    t2.setText("Silver Medal : " + silver + "medal(s)");
+                    t2.setText("Silver Medal : " + silver + " medal(s)");
+                    t2.setPadding(25,0,0,0);
                     mll1.addView(t2);
 
                     TextView t3 = new TextView(getApplicationContext());
                     t3.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
                     t3.setTextSize(20);
-                    t3.setText("Bronze Medal : " + bronze + "medal(s)");
+                    t3.setText("Bronze Medal : " + bronze + " medal(s)");
+                    t3.setPadding(25,0,0,0);
                     mll1.addView(t3);
                 }
             }
