@@ -6,4 +6,11 @@
     <color name="fontColor">#315972</color>
     <color name="colorWhite">#ffffff</color>
     <color name="colorBlack">#000000</color>
+    <color name="lightBlue">#64b5f6</color>
+    <color name="darkPeach">#e57373</color>
+    <color name="duckEggBlue">#e0f7fa</color>
+    <color name="paleLavender">#fdfcff</color>
+    <color name="blueGray">#78849e</color>
+    <color name="slate">#454f63</color>
+    <color name="silver">#d1d1d6</color>
 </resources>

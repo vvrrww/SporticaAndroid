@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -78,24 +79,37 @@ public class NewsFragment extends Fragment {
                     new NavActivity.DownloadImage(imv).execute(url);
                     ll1.addView(imv);
 
+                    TextView t3 = new TextView(getActivity());
+                    LinearLayout.LayoutParams lp5 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+                    lp5.setMargins(20,0,20,0);
+                    t3.setLayoutParams(lp5);
+                    t3.setPadding(20,2,8,2);
+                    t3.setText(date);
+                    t3.setTextColor(getResources().getColor(R.color.blueGray));
+                    t3.setBackgroundColor(getResources().getColor(R.color.colorWhite));
+                    ll1.addView(t3);
+
+
                     TextView t1 = new TextView(getActivity());
                     LinearLayout.LayoutParams lp2 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+                    lp2.setMargins(20,0,20,0);
                     t1.setLayoutParams(lp2);
-                    t1.setTextSize(30);
+                    t1.setPadding(10,2,8,2);
+                    t1.setTextSize(25);
                     t1.setText(title);
+                    t1.setTextColor(getResources().getColor(R.color.slate));
+                    t1.setBackgroundColor(getResources().getColor(R.color.colorWhite));
                     ll1.addView(t1);
 
                     TextView t2 = new TextView(getActivity());
                     LinearLayout.LayoutParams lp3 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+                    lp3.setMargins(20,0,20,0);
                     t2.setLayoutParams(lp3);
+                    t2.setPadding(8,2,8,2);
                     t2.setText(short_detail);
+                    t2.setTextColor(getResources().getColor(R.color.blueGray));
+                    t2.setBackgroundColor(getResources().getColor(R.color.colorWhite));
                     ll1.addView(t2);
-
-                    TextView t3 = new TextView(getActivity());
-                    LinearLayout.LayoutParams lp5 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-                    t3.setLayoutParams(lp5);
-                    t3.setText(date);
-                    ll1.addView(t3);
 
                     Button btn = new Button(getActivity());
                     btn.setText(bs);
