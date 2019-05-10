@@ -18,7 +18,7 @@ import static java.sql.DriverManager.println;
 
 public class TournamentMedalsActivity extends AppCompatActivity {
 
-    String key;
+    String tname;
     LinearLayout mll1;
     DatabaseReference ref;
 
@@ -29,8 +29,8 @@ public class TournamentMedalsActivity extends AppCompatActivity {
 
         mll1 = this.findViewById(R.id.mll1);
         Intent intent = getIntent();
-        key = intent.getStringExtra("key");
-        ref = FirebaseDatabase.getInstance().getReference().child("tournament").child(key).child("medal");
+        tname = intent.getStringExtra("tname");
+        ref = FirebaseDatabase.getInstance().getReference().child("tournament2/"+tname+"/medal");
 
         readFromDatabase();
     }
@@ -43,7 +43,7 @@ public class TournamentMedalsActivity extends AppCompatActivity {
                 mll1.removeAllViews();
 
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    final String faculty = snapshot.child("faculty").getValue().toString();
+                    final String faculty = snapshot.getKey().toString();
                     final String gold = snapshot.child("gold").getValue().toString();
                     final String silver = snapshot.child("silver").getValue().toString();
                     final String bronze = snapshot.child("bronze").getValue().toString();

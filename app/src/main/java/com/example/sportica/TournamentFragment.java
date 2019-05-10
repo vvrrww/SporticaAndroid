@@ -50,7 +50,7 @@ public class TournamentFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         t1 = getView().findViewById(R.id.t1);
         t1.setText("Tournament");
-        ref = FirebaseDatabase.getInstance().getReference().child("tournament");
+        ref = FirebaseDatabase.getInstance().getReference().child("tournament2");
         readFromDatabase();
     }
 
@@ -63,7 +63,7 @@ public class TournamentFragment extends Fragment {
                 ll1.removeAllViews();
                 for (final DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     final String url = snapshot.child("image").getValue().toString();
-                    final String key = snapshot.getKey().toString();
+                    final String tname = snapshot.getKey().toString();
 
                     ImageView imv = new ImageView(getActivity());
                     LinearLayout.LayoutParams lp1 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
@@ -76,7 +76,7 @@ public class TournamentFragment extends Fragment {
                         public void onClick(View v) {
                             Intent intent = new Intent(getActivity(),TournamentDetailActivity.class);
                             intent.putExtra("url", url);
-                            intent.putExtra("key", key);
+                            intent.putExtra("tname", tname);
                             startActivity(intent);
                         }
                     });

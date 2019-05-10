@@ -26,9 +26,7 @@ public class TournamentDetailActivity extends AppCompatActivity {
     Button tb3;
     Button tb4;
     DatabaseReference ref;
-    public String key;
-    String title;
-    String detail;
+    String tname;
     String url;
 
     @Override
@@ -45,10 +43,10 @@ public class TournamentDetailActivity extends AppCompatActivity {
         tb4 = this.findViewById(R.id.tb4);
         Intent intent = getIntent();
         url = intent.getStringExtra("url");
-        key = intent.getStringExtra("key");
+        tname = intent.getStringExtra("tname");
         new NavActivity.DownloadImage(tim1).execute(url);
 
-        ref = FirebaseDatabase.getInstance().getReference().child("tournament").child(key);
+        ref = FirebaseDatabase.getInstance().getReference().child("tournament2/"+tname);
         readFromDatabase();
     }
 
@@ -56,7 +54,7 @@ public class TournamentDetailActivity extends AppCompatActivity {
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                tt1.setText(dataSnapshot.child("title").getValue().toString());
+                tt1.setText(dataSnapshot.getKey().toString());
                 tt1.setTextSize(30);
                 tt2.setText(dataSnapshot.child("detail").getValue().toString());
             }
@@ -81,22 +79,22 @@ public class TournamentDetailActivity extends AppCompatActivity {
 
     public void sportClick(View v){
         Intent intent = new Intent(this, TournamentSportActivity.class);
-        intent.putExtra("key", key);
+        intent.putExtra("tname", tname);
         startActivity(intent);
     }
     public void medalsClick(View v){
         Intent intent = new Intent(this, TournamentMedalsActivity.class);
-        intent.putExtra("key", key);
+        intent.putExtra("tname", tname);
         startActivity(intent);
     }
     public void playerClick(View v){
         Intent intent = new Intent(this, TournamentPlayerActivity.class);
-        intent.putExtra("key", key);
+        intent.putExtra("tname", tname);
         startActivity(intent);
     }
     public void contactClick(View v){
         Intent intent = new Intent(this, TournamentContactActivity.class);
-        intent.putExtra("key", key);
+        intent.putExtra("tname", tname);
         startActivity(intent);
     }
 }

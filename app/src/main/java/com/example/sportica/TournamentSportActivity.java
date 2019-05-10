@@ -16,7 +16,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class TournamentSportActivity extends AppCompatActivity {
 
-    String key;
+    String tname;
     LinearLayout sll1;
     DatabaseReference ref;
 
@@ -26,8 +26,8 @@ public class TournamentSportActivity extends AppCompatActivity {
         setContentView(R.layout.activity_tournament_sport);
         sll1 = this.findViewById(R.id.sll1);
         Intent intent = getIntent();
-        key = intent.getStringExtra("key");
-        ref = FirebaseDatabase.getInstance().getReference().child("tournament").child(key).child("sport");
+        tname = intent.getStringExtra("tname");
+        ref = FirebaseDatabase.getInstance().getReference().child("tournament2/"+tname+"/sport");
         readFromDatabase();
     }
     public void readFromDatabase(){
@@ -38,7 +38,7 @@ public class TournamentSportActivity extends AppCompatActivity {
                 sll1.removeAllViews();
 
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    final String sname = snapshot.child("sname").getValue().toString();
+                    final String sname = snapshot.getKey().toString();
 
                     TextView t1 = new TextView(getApplicationContext());
                     t1.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));

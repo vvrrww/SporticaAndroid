@@ -19,7 +19,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class TournamentContactActivity extends AppCompatActivity {
 
-    String key;
+    String tname;
     LinearLayout cll1;
     DatabaseReference ref;
 
@@ -29,8 +29,8 @@ public class TournamentContactActivity extends AppCompatActivity {
         setContentView(R.layout.activity_tournament_contact);
         cll1 = this.findViewById(R.id.cll1);
         Intent intent = getIntent();
-        key = intent.getStringExtra("key");
-        ref = FirebaseDatabase.getInstance().getReference().child("tournament").child(key).child("contact");
+        tname = intent.getStringExtra("tname");
+        ref = FirebaseDatabase.getInstance().getReference().child("tournament2/"+tname+"/contact");
         readFromDatabase();
     }
     public void readFromDatabase(){

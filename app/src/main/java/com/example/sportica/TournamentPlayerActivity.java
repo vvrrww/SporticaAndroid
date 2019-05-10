@@ -18,9 +18,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class TournamentPlayerActivity extends AppCompatActivity {
 
-    String key;
+    String tname;
     LinearLayout pll1;
     DatabaseReference ref;
     Button fb1;
@@ -32,8 +35,8 @@ public class TournamentPlayerActivity extends AppCompatActivity {
         pll1 = this.findViewById(R.id.pll1);
         fb1 = this.findViewById(R.id.fb1);
         Intent intent = getIntent();
-        key = intent.getStringExtra("key");
-        ref = FirebaseDatabase.getInstance().getReference().child("tournament").child(key).child("sport");
+        tname = intent.getStringExtra("tname");
+        ref = FirebaseDatabase.getInstance().getReference().child("tournament2/"+tname+"/sport");
         readFromDatabase();
     }
     public void readFromDatabase(){
@@ -44,8 +47,7 @@ public class TournamentPlayerActivity extends AppCompatActivity {
                 pll1.removeAllViews();
 
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    final String sname = snapshot.child("sname").getValue().toString();
-                    DataSnapshot ds = snapshot.child("faculty");
+                    final String sname = snapshot.getKey().toString();
 
                     TextView t1 = new TextView(getApplicationContext());
                     t1.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
@@ -53,9 +55,8 @@ public class TournamentPlayerActivity extends AppCompatActivity {
                     t1.setText(sname);
                     pll1.addView(t1);
 
-                    for (DataSnapshot fkey : ds.getChildren()) {
-                        final String fname = fkey.child("fname").getValue().toString();
-                        DataSnapshot ds2 = fkey.child("player");
+                    for (DataSnapshot snapshot1 : snapshot.getChildren()) {
+                        final String fname = snapshot1.getKey().toString();
 
                         TextView t2 = new TextView(getApplicationContext());
                         t2.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
@@ -63,9 +64,9 @@ public class TournamentPlayerActivity extends AppCompatActivity {
                         t2.setText(fname);
                         pll1.addView(t2);
 
-                        for (DataSnapshot pkey : ds2.getChildren()) {
-                            final String pname = pkey.child("name").getValue().toString();
-                            final String type = pkey.child("type").getValue().toString();
+                        for (DataSnapshot snapshot2 : snapshot1.getChildren()) {
+                            final String pname = snapshot2.getKey().toString();
+                            final String type = snapshot2.getValue().toString();
 
                             TextView t3 = new TextView(getApplicationContext());
                             t3.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
@@ -98,16 +99,18 @@ public class TournamentPlayerActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 1){
             if (resultCode == RESULT_OK){
-                String sport = data.getStringExtra("sport");
-                String faculty = data.getStringExtra("faculty");
-                String name = data.getStringExtra("name");
-                String type = data.getStringExtra("type");
+                final String sport = data.getStringExtra("sport");
+                final String faculty = data.getStringExtra("faculty");
+                final String name = data.getStringExtra("name");
+                final String type = data.getStringExtra("type");
 
+                DatabaseReference newRef = FirebaseDatabase.getInstance().getReference().child("tournament2/"+tname+"/sport/"+sport+"/"+faculty+"/"+name);
+                newRef.setValue(type);
 
-                Toast.makeText(this, "Form apply successfully", Toast.LENGTH_SHORT);
+                Toast.makeText(this, "Form apply successfully", Toast.LENGTH_LONG);
             }
             if (resultCode == RESULT_CANCELED){
-                Toast.makeText(this, "Form has been cancelled", Toast.LENGTH_SHORT);
+                Toast.makeText(this, "Form has been cancelled", Toast.LENGTH_LONG);
             }
         }
     }
