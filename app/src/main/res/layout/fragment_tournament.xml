@@ -25,15 +25,5 @@
         android:textColor="@color/colorWhite"
         android:textSize="36sp" />
 
-<<<<<<< HEAD
-=======
-    <LinearLayout
-        android:id="@+id/ll1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="110dp"
-        android:background="@color/darkPeach"
-        android:orientation="vertical"></LinearLayout>
 
->>>>>>> 630a1401611ffd854714245e39e3392bd13640aa
 </FrameLayout>
