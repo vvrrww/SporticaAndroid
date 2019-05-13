@@ -12,6 +12,8 @@ import android.widget.Spinner;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import com.example.sportica.NavActivity;
+
 public class TournamentPlayerFormActivity extends AppCompatActivity {
 
     Spinner s1;
@@ -26,13 +28,14 @@ public class TournamentPlayerFormActivity extends AppCompatActivity {
         setContentView(R.layout.activity_tournament_player_form);
 
         apply_button = this.findViewById(R.id.apply_button);
+
         s1 = this.findViewById(R.id.s1);
         s2 = this.findViewById(R.id.s2);
         s3 = this.findViewById(R.id.s3);
         enter_name = this.findViewById(R.id.enter_name);
 
-        String[] sport_list = new String[]{"Bowling","Soccer","Badminton","Basketball","Tabletennis"};
-        String[] faculty_list = new String[]{"Engineering","Liberal Art","Science","Dentist"};
+        String[] sport_list = new String[]{"Basketball","Badminton","Bowling","Fencing","Football","Swimming","Table tennis"};
+        String[] faculty_list = new String[]{"Engineering","Arts","Science","Dentistry","Pharmacy","Medicine","Education","Economics","Psychology"};
         String[] type_list = new String[]{"Single","Double","Team"};
 
         ArrayList<String> aa = new ArrayList<String>();

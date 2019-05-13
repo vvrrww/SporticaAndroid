@@ -40,6 +40,12 @@ public class TournamentPlayerActivity extends AppCompatActivity {
         fb1 = this.findViewById(R.id.fb1);
         Intent intent = getIntent();
         tname = intent.getStringExtra("tname");
+//        fb1.setVisibility(View.INVISIBLE);
+//        String a = NavActivity.getID();
+//        Log.d("ggggggg", a);
+//        if(NavActivity.getID() == "5830480621"){
+//            fb1.setVisibility(View.VISIBLE);
+//        }
         ref = FirebaseDatabase.getInstance().getReference().child("tournament2/"+tname+"/sport");
         readFromDatabase();
     }

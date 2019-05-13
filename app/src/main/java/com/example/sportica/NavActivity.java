@@ -34,6 +34,8 @@ public class NavActivity extends AppCompatActivity {
     TournamentFragment tournamentFragment;
     CalenderFragment accountFragment;
 
+    static String id;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,12 +48,11 @@ public class NavActivity extends AppCompatActivity {
                 json = getIntent().getExtras().getString("com.example.sportica.json");
                 JSONObject user = new JSONObject(json);
                 myTV.setText("Welcome back! "+user.getString("firstname")+" "+user.getString("lastname"));
+                id = user.getString("ouid");
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
-        Intent intent = getIntent();
-
         nav1 = this.findViewById(R.id.nav1);
         main_frame = this.findViewById(R.id.main_frame);
 
@@ -107,5 +108,9 @@ public class NavActivity extends AppCompatActivity {
         protected void onPostExecute(Bitmap result) {
             bmImage.setImageBitmap(result);
         }
+    }
+
+    public static String getID() {
+        return id;
     }
 }
